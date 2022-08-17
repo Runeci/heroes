@@ -1,0 +1,29 @@
+.login-form__container {
+    display: grid;
+    place-items: center;
+    width: 100%;
+
+    .login-form__form {
+        max-width: 300px;
+        height: 300px;
+        justify-content: center;
+        box-sizing: border-box;
+        padding: 10px;
+        background-color: rgba(255,255,255, .6);
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .login-form__form {
+
+        .mat-form-field {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .login-form__actions {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

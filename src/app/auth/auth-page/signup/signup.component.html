@@ -1,1 +1,36 @@
-<p>signup works!</p>
+<div class="signup-form__container">
+    <form class="signup-form__form" [formGroup]="signupForm">
+        <h2>SIGN UP</h2>
+        <div class="form__container">
+            <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input matInput class="form__input" type="text" placeholder="Enter your username"
+                       formControlName="username" autocomplete="off">
+                <mat-error *ngIf="signupForm.get('username')?.hasError('usernameStrength')">
+                    {{ signupForm.get('username')?.errors?.['usernameStrength']}}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput class="form__input" type="email" placeholder="Enter your email"
+                       formControlName="email" autocomplete="off">
+                <mat-error *ngIf="signupForm.get('email')?.hasError('emailStrength')">
+                    {{ signupForm.get('email')?.errors?.['emailStrength']}}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput class="form__input" type="password" placeholder="Enter password"
+                       formControlName="password" autocomplete="off">
+                <mat-error *ngIf="signupForm.get('password')?.hasError('passwordStrength')">
+                    {{ signupForm.get('password')?.errors?.['passwordStrength'] }}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="signup-form__actions">
+            <button mat-flat-button color="primary" class="form__button">SIGN UP</button>
+        </div>
+    </form>
+</div>

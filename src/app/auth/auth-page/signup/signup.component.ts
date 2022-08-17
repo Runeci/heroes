@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EmailStrengthValidator } from '../validators/email-strength.validator';
+import { PasswordStrengthValidator } from '../validators/password-strength.validator';
+import { UsernameStrengthValidator } from '../validators/username-strength.validator';
 
 @Component({
   selector: 'app-signup',
@@ -6,10 +10,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+    signupForm!: FormGroup;
 
-  constructor() { }
+    constructor(private fb: FormBuilder) {
+    }
 
-  ngOnInit(): void {
-  }
-
+    public ngOnInit(): void {
+        this.signupForm = this.fb.group({
+            username: ['', [UsernameStrengthValidator]],
+            email: ['', [Validators.required, EmailStrengthValidator]],
+            password: ['', [Validators.required, PasswordStrengthValidator]],
+        });
+    }
 }

@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FeaturesModule } from './features/features.module';
+import { CoreModule } from './core/core.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -14,6 +16,8 @@ import { FeaturesModule } from './features/features.module';
         BrowserModule,
         AppRoutingModule,
         FeaturesModule,
+        CoreModule,
+        MatFormFieldModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

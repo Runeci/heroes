@@ -1,1 +1,42 @@
-<p>login works!</p>
+<div class="login-form__container">
+    <form class="login-form__form" [formGroup]="loginForm">
+        <h2>LOGIN</h2>
+        <div class="form__container">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput class="form__input" type="email" placeholder="Enter your email"
+                       formControlName="email" autocomplete="off">
+                <mat-error *ngIf="loginForm.get('email')?.hasError('emailStrength')">
+                    {{ loginForm.get('email')?.errors?.['emailStrength']}}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput class="form__input" type="password" placeholder="Enter password"
+                       formControlName="password" autocomplete="off">
+                <mat-error *ngIf="loginForm.get('password')?.hasError('passwordStrength')">
+                    {{ loginForm.get('password')?.errors?.['passwordStrength'] }}
+                </mat-error>
+                <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">length</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="login-form__actions">
+            <button
+                class="form__button"
+                mat-flat-button
+                color="primary"
+                type="button"
+            >LOG IN
+            </button>
+            <button
+                class="form__button"
+                mat-flat-button
+                color="primary"
+                type="button"
+                [routerLink]="['../', 'signup']">SIGN UP
+            </button>
+        </div>
+    </form>
+</div>
