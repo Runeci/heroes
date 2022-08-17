@@ -9,10 +9,8 @@ import { EmailStrengthValidator } from '../validators/email-strength.validator';
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-    loginForm!: FormGroup;
-    errors = {
-        minLength: 'l'
-    }
+    public loginForm!: FormGroup;
+
     constructor(private fb: FormBuilder) {
     }
 

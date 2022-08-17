@@ -10,14 +10,14 @@ import { UsernameStrengthValidator } from '../validators/username-strength.valid
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-    signupForm!: FormGroup;
+    public signupForm!: FormGroup;
 
     constructor(private fb: FormBuilder) {
     }
 
     public ngOnInit(): void {
         this.signupForm = this.fb.group({
-            username: ['', [UsernameStrengthValidator]],
+            username: ['', [Validators.required, UsernameStrengthValidator]],
             email: ['', [Validators.required, EmailStrengthValidator]],
             password: ['', [Validators.required, PasswordStrengthValidator]],
         });
