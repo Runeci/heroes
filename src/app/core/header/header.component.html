@@ -1,3 +1,8 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="header" color="primary">
     <h1>Heroes</h1>
+    <div  class="header__aside" *ngIf="isLoggedIn$ | async">
+        <mat-icon class="header__icon">account_circle</mat-icon>
+        <div class="header__username"> {{ username$ | async }}</div>
+        <button mat-flat-button (click)="logout()">Log Out</button>
+    </div>
 </mat-toolbar>

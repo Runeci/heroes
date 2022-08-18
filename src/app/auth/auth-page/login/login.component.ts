@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PasswordStrengthValidator } from '../validators/password-strength.validator';
 import { EmailStrengthValidator } from '../validators/email-strength.validator';
+import { AuthService } from '../../auth.service';
 
 @Component({
     selector: 'app-login',
@@ -11,7 +12,10 @@ import { EmailStrengthValidator } from '../validators/email-strength.validator';
 export class LoginComponent implements OnInit {
     public loginForm!: FormGroup;
 
-    constructor(private fb: FormBuilder) {
+    constructor(
+        private fb: FormBuilder,
+        private authService: AuthService,
+    ) {
     }
 
     public ngOnInit(): void {
@@ -19,5 +23,10 @@ export class LoginComponent implements OnInit {
             email: ['', [Validators.required, EmailStrengthValidator]],
             password: ['', [Validators.required, PasswordStrengthValidator]],
         });
+    }
+
+    public onSubmit(): void {
+        this.authService.login(this.loginForm.value);
+        this.loginForm.reset();
     }
 }

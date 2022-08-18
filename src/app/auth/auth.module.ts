@@ -9,13 +9,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { AuthModalComponent } from './auth-modal/auth-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
     declarations: [
         LoginComponent,
         SignupComponent,
-        AuthPageComponent
+        AuthPageComponent,
+        AuthModalComponent
     ],
     imports: [
         CommonModule,
@@ -25,10 +27,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         MatIconModule,
         MatButtonModule,
         ReactiveFormsModule,
+        MatDialogModule,
     ],
     exports: [
         FormsModule,
     ]
 })
 export class AuthModule {
+
 }

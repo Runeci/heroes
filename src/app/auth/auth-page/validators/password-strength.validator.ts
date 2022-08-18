@@ -1,4 +1,4 @@
-import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 export function PasswordStrengthValidator(control: AbstractControl): ValidationErrors | null {
     const value: string = control.value || '';
@@ -31,6 +31,31 @@ export function PasswordStrengthValidator(control: AbstractControl): ValidationE
     || !numberCharacters.test(value)
     || !specialCharacters.test(value)
         ? {
-            passwordStrength: `${errorMessage}`,
+            passwordStrength: `${ errorMessage }`,
         } : null;
+}
+
+export function gte(username: string): ValidatorFn {
+    if (!username) {
+        return null;
+    }
+
+    return (control: AbstractControl): ValidationErrors | null => {
+        if (!control) {
+            return null;
+        }
+        const password = control.value;
+        const half = Math.ceil(Math.min(username.length, password.length) / 2);
+
+
+        for (let i = 0; i <= password.length - half; i++) {
+            if (username.includes(password.substr(i, half))) {
+                return { 'gte': true, 'requiredValue': 43 };
+            }
+        }
+
+
+        return null;
+    };
+
 }

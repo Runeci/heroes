@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FeaturesModule } from './features/features.module';
 import { CoreModule } from './core/core.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
         FeaturesModule,
         CoreModule,
         MatFormFieldModule,
+        MatDialogModule
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 <div class="login-form__container">
-    <form class="login-form__form" [formGroup]="loginForm">
+    <form class="login-form__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <h2>LOGIN</h2>
         <div class="form__container">
 
@@ -8,8 +8,8 @@
                 <input matInput class="form__input" type="email" placeholder="Enter your email"
                        formControlName="email" autocomplete="off">
                 <mat-error
-                    *ngIf="loginForm.get('email')?.hasError('emailStrength')">
-                    {{ loginForm.get('email')?.errors?.['emailStrength']}}
+                    *ngIf="loginForm.get('email').hasError('emailStrength')">
+                    {{ loginForm.get('email').errors?.['emailStrength']}}
                 </mat-error>
             </mat-form-field>
 
@@ -18,8 +18,8 @@
                 <input matInput class="form__input" type="password" placeholder="Enter password"
                        formControlName="password" autocomplete="off">
                 <mat-error
-                    *ngIf="loginForm.get('password')?.hasError('passwordStrength')">
-                    {{ loginForm.get('password')?.errors?.['passwordStrength'] }}
+                    *ngIf="loginForm.get('password').hasError('passwordStrength')">
+                    {{ loginForm.get('password').errors?.['passwordStrength'] }}
                 </mat-error>
             </mat-form-field>
         </div>
@@ -30,14 +30,14 @@
                 mat-flat-button
                 color="primary"
                 type="button"
-            >LOG IN
+                [routerLink]="['../', 'signup']">NEW ACCOUNT
             </button>
             <button
                 class="form__button"
                 mat-flat-button
                 color="primary"
-                type="button"
-                [routerLink]="['../', 'signup']">NEW ACCOUNT
+                [disabled]="loginForm.invalid"
+            >LOG IN
             </button>
         </div>
     </form>
