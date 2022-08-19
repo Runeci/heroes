@@ -1,0 +1,32 @@
+.hero-select__card {
+
+    .mat-card-title {
+        text-align: center;
+    }
+
+    .hero-select__actions {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+
+.hero-select__card-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    .hero-select__title-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-select__lists {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+

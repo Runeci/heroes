@@ -19,7 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
         FeaturesModule,
         CoreModule,
         MatFormFieldModule,
-        MatDialogModule
+        MatDialogModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

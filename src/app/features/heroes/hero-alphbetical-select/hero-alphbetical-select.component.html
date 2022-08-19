@@ -1,0 +1,10 @@
+<div style="position: relative">
+    <button (click)=select.open() class="alphabetical-select">{{ selectedLetter | uppercase }}</button>
+    <mat-select #select  style="position: absolute; top: 70px">
+        <mat-option
+            (click)="onLetterSelect(letter)"
+            *ngFor="let letter of alphabet"
+            >{{ letter | uppercase}}
+        </mat-option>
+    </mat-select>
+</div>

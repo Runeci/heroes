@@ -1,0 +1,44 @@
+<div class="search">
+    <mat-form-field class="search__field" appearance="outline">
+        <mat-label>Search</mat-label>
+        <input
+            [formControl]="searchControl"
+            (keydown.enter)="onSearch()"
+            matInput
+            required
+            type="text">
+        <mat-error *ngIf="searchControl.invalid">
+            Only letters without wrapping spaces are allowed
+        </mat-error>
+        <div matSuffix>
+            <button
+                *ngIf="searchControl.value"
+                class="search__close"
+                mat-icon-button
+                aria-label="Clear"
+                (click)="onClearSearch()"
+            >
+                <mat-icon>close</mat-icon>
+            </button>
+            <button
+                matSuffix
+                mat-icon-button
+                class="search-icon"
+                type="submit"
+                (click)="onSearch()"
+                [disabled]="searchControl.invalid"
+            >
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+    </mat-form-field>
+
+    <mat-chip-list class="search__chips">
+        <mat-chip *ngFor="let resent of resentSearches; let i = index" (click)="onResentSearch(i)">
+            {{ resent }}
+        </mat-chip>
+    </mat-chip-list>
+
+</div>
+
+

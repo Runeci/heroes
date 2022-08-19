@@ -1,0 +1,33 @@
+<mat-card class="hero-select__card">
+    <mat-card-title>{{ hero.name }}</mat-card-title>
+    <div class="hero-select__card-content">
+
+        <img mat-card-lg-image [src]="hero.image.url" [alt]="hero.name">
+        <mat-card-content class="hero-select__lists">
+            <mat-list>
+                <mat-list-item *ngFor="let powerstat of powerstats.slice(0,3)">
+                    {{ powerstat[0] | titlecase }} : {{ powerstat[1].trim() === 'null' ? 0 : powerstat[1] }}
+                </mat-list-item>
+            </mat-list>
+            <mat-list>
+                <mat-list-item *ngFor="let powerstat of powerstats.slice(3,6)">
+                    {{ powerstat[0] | titlecase }} : {{ powerstat[1].trim() === 'null' ? 0 : powerstat[1] }}
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </div>
+    <mat-card-actions class="hero-select__actions">
+        <button
+            (click)="onSelect()"
+            *ngIf="!isOwned; else ownedBtn"
+            mat-flat-button color="primary">Select
+        </button>
+        <ng-template #ownedBtn>
+            <button
+                (click)="onRemove()"
+                mat-flat-button
+                color="accent">Owned
+            </button>
+        </ng-template>
+    </mat-card-actions>
+</mat-card>

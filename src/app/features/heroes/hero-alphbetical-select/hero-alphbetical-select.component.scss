@@ -1,0 +1,36 @@
+.alphabetical-select {
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
+    top: 2px;
+    display: grid;
+    place-content: center;
+    font-size: 20px;
+    border: none;
+    padding: 0;
+    background-color: #c2185b;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease-in-out;
+
+
+    &:hover {
+        background-color: white;
+        color: #c2185b;
+    }
+}
+
+::ng-deep.mat-select-panel .mat-option {
+    padding: 5px;
+}
+
+::ng-deep.mat-select-panel .mat-option-text {
+    font-size: 16px;
+    text-align: center;
+}
+
+::ng-deep.mat-select-arrow {
+    display: none;
+}
+
+

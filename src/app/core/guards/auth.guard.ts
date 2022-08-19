@@ -23,19 +23,17 @@ export class AuthGuard implements CanActivate {
         const hourInMs = 3600000;
         const token = this.authService.currentUser?.token;
 
-        console.log('guard', token);
         if (!token) {
             this.router.navigate(['/login']);
             return false;
         }
 
         const timeLeft = Date.now() - this.authService.currentUser.token.time;
-        console.log(timeLeft, timeLeft <= hourInMs);
 
         if (timeLeft <= hourInMs) {
             return true;
         }
-        this.router.navigate(['/login']);
+        this.authService.logout();
         this.dialog.open(AuthModalComponent, {
             width: '300px',
             data: 'Your current session has expired. Please login again to continue using this app!'
