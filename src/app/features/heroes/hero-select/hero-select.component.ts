@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { HeroesApiService } from '../services/heroes-api.service';
+import { HeroesApiService } from '../../services/heroes-api.service';
 import { BehaviorSubject, map, Observable, switchMap} from 'rxjs';
 import { Hero } from '../helpers/hero.interface';
 import { ActivatedRoute } from '@angular/router';

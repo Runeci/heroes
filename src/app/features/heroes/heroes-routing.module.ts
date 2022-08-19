@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HeroSelectComponent } from './heroes/hero-select/hero-select.component';
+import { HeroSelectComponent } from './hero-select/hero-select.component';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo:'select' },
@@ -11,5 +11,5 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class FeaturesRoutingModule {
+export class HeroesRoutingModule {
 }

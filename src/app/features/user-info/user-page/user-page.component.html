@@ -1,0 +1,18 @@
+<mat-tab-group
+    mat-align-tabs="center"
+    animationDuration="0"
+    [selectedIndex]="selectedTab$ | async"
+    (selectedTabChange)="tabChanged($event)">
+    <mat-tab label="Heroes List">
+        <app-user-hero-list></app-user-hero-list>
+    </mat-tab>
+    <mat-tab label="Battle History">
+        <app-user-battle-history></app-user-battle-history>
+    </mat-tab>
+    <mat-tab label="Powerups">
+        <app-user-hero-powerups></app-user-hero-powerups>
+    </mat-tab>
+</mat-tab-group>
+
+
+

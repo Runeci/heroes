@@ -2,12 +2,34 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+
+    h1 {
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
 }
+
 .header__aside {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
+
+    .user-info__btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
 }
 
 .header__icon {

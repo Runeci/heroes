@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map,  Subject, takeUntil } from 'rxjs';
-import { HeroesApiService } from '../services/heroes-api.service';
+import { HeroesApiService } from '../../services/heroes-api.service';
 
 @Component({
     selector: 'app-hero-search',

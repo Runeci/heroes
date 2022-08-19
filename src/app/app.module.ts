@@ -3,10 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FeaturesModule } from './features/features.module';
+import { HeroesModule } from './features/heroes/heroes.module';
 import { CoreModule } from './core/core.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
+import { UserModule } from './features/user-info/user.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FeaturesModule,
+        HeroesModule,
+        UserModule,
         CoreModule,
         MatFormFieldModule,
         MatDialogModule,

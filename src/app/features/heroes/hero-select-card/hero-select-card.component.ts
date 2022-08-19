@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Hero } from '../helpers/hero.interface';
-import { HeroService } from '../services/hero.service';
+import { HeroService } from '../../services/hero.service';
 
 @Component({
     selector: 'app-hero-select-card',

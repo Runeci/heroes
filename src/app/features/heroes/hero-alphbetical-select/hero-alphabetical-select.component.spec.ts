@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeroAlphbeticalSelectComponent } from './hero-alphbetical-select.component';
+import { HeroAlphabeticalSelectComponent } from './hero-alphabetical-select.component';
 
 describe('HeroAlphbeticalSelectComponent', () => {
-  let component: HeroAlphbeticalSelectComponent;
-  let fixture: ComponentFixture<HeroAlphbeticalSelectComponent>;
+  let component: HeroAlphabeticalSelectComponent;
+  let fixture: ComponentFixture<HeroAlphabeticalSelectComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeroAlphbeticalSelectComponent ]
+      declarations: [ HeroAlphabeticalSelectComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HeroAlphbeticalSelectComponent);
+    fixture = TestBed.createComponent(HeroAlphabeticalSelectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
