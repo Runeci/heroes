@@ -14,13 +14,16 @@ export class UserPageComponent implements OnInit {
     public tabLinks = ['list', 'history', 'powerups'];
     public selectedTab$: Observable<number> = of(0);
 
-    constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+    constructor(
+        private router: Router,
+        private activatedRoute: ActivatedRoute
+    ) {
+    }
+
+    public ngOnInit(): void {
         this.selectedTab$ = this.activatedRoute.queryParams.pipe(
             map(params => this.tabLinks.indexOf(params['tab'])),
         );
-    }
-
-    ngOnInit(): void {
     }
 
     public navigate(address: string): void {
@@ -30,7 +33,7 @@ export class UserPageComponent implements OnInit {
         );
     }
 
-    tabChanged(tabChangeEvent: MatTabChangeEvent) {
+    public tabChanged(tabChangeEvent: MatTabChangeEvent) {
         this.navigate(this.tabLinks[tabChangeEvent.index]);
     }
 }

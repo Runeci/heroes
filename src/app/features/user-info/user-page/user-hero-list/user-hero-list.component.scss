@@ -1,0 +1,40 @@
+.user-owned__list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0 45px;
+    padding: 20px 0;
+    box-sizing: border-box;
+
+    .user-owned__card-content {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+
+    .mat-card-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        ol {
+            margin: 0;
+        }
+    }
+
+    .mat-card-actions {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .user-owned__add-btn {
+        position: absolute;
+        right: -45px;
+        bottom: 20px;
+    }
+}
+

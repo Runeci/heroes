@@ -7,6 +7,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { UserHeroListComponent } from './user-page/user-hero-list/user-hero-list.component';
 import { UserBattleHistoryComponent } from './user-page/user-battle-history/user-battle-history.component';
 import { UserHeroPowerupsComponent } from './user-page/user-hero-powerups/user-hero-powerups.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import { UserHeroPowerupsComponent } from './user-page/user-hero-powerups/user-h
     imports: [
         CommonModule,
         UserRoutingModule,
-        MatTabsModule
+        MatTabsModule,
+        MatCardModule,
+        MatButtonModule,
+        MatIconModule
     ]
 })
 export class UserModule { }
