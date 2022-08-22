@@ -1,0 +1,46 @@
+.hero-info__container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
+
+    .hero-info__img img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    .hero-info__name {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .hero-info__content {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 10px;
+
+        .hero-info__content_item {
+            h4 {
+                color: #c2185b;
+                font-weight: bold;
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .hero-info__content_list {
+                span {
+                    color: #b0bec5;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .hero-info__container {
+        grid-template-columns: 1fr;
+        place-items: center;
+    }
+}

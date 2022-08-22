@@ -19,10 +19,7 @@ export class HeroSelectCardComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        const heroIDs = this.userService.ownedHeroes.map(hero => hero.id);
-        if (heroIDs.includes(this.hero.id)) {
-            this.isOwned = true;
-        }
+        this.isOwned = this.userService.checkIfHeroIsOwned(this.hero.id);
         this.powerstats = Object.entries(this.hero.powerstats);
     }
 

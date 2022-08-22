@@ -17,22 +17,30 @@
         .user-owned__info {
             width: 150px;
         }
-    }
 
-    .mat-card-content {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
+        .mat-card-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
 
-        ol {
-            margin: 0;
+            ol {
+                margin: 0;
+            }
         }
     }
 
+
     .mat-card-actions {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 5px;
+
+        button {
+            width: 85px;
+        }
     }
 
     .user-owned__add-btn {

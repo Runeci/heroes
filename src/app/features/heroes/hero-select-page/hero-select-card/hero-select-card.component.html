@@ -17,6 +17,7 @@
         </mat-card-content>
     </div>
     <mat-card-actions class="hero-select__actions">
+        <button mat-flat-button color="primary" [routerLink]="['/heroes', hero.id]">More</button>
         <button
             (click)="onSelect()"
             *ngIf="!isOwned; else ownedBtn"

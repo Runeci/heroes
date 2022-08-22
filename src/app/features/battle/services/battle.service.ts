@@ -55,7 +55,9 @@ export class BattleService {
         const battleInfo: BattleInfo = {
             position: this.battleHistory.length + 1,
             opponentHeroName: opponentHero.name,
+            opponentId: opponentHero.id,
             userHeroName: userHero.name,
+            userId: userHero.id,
             date: new Date(),
             result: battleResult,
         }
@@ -65,7 +67,6 @@ export class BattleService {
 
     private saveToBattleHistory(battleInfo: BattleInfo): void {
         this.battleHistory.push(battleInfo);
-        console.log(this.battleHistory);
     }
 
     private openResulDialog(message: string): void {

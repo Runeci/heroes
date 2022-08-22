@@ -28,4 +28,8 @@ export class UserBattleHistoryComponent implements OnInit, AfterViewInit {
     public ngAfterViewInit() {
         this.dataSource.sort = this.sort;
     }
+
+    Bla(str: string) {
+        console.log(str)
+    }
 }

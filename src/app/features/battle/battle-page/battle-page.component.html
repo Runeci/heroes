@@ -1,6 +1,7 @@
 <div class="battle__container">
     <app-battle-hero-card
-        class="battle__column"
+        class="battle__column battle__hero-card"
+        [routerLink]="['/heroes', userHero.id]"
         [hero]="userHero"
         [heroStats]="userHeroStats">
     </app-battle-hero-card>
@@ -12,7 +13,7 @@
         <div class="battle__opponent-hero-name hero-name">{{ opponentHeroName }}</div>
 
         <div class="battle__powerups">
-            <section class="example-section" [formGroup]="powerupsForm">
+            <section [formGroup]="powerupsForm">
                 <p *ngFor="let powerup of userPowerups; let i = index">
                     <mat-checkbox
                         [formControlName]="powerup.item"
@@ -20,7 +21,7 @@
                         [checked]="false"
                         [value]="powerup.value.toString()"
                         (change)="onCheckboxChange($event, i)">
-                        <span>{{ powerup.item }} {{ powerup.usesLeft }}</span>
+                        <span>{{ powerup.item }} - {{ powerup.usesLeft }} left</span>
                     </mat-checkbox>
                 </p>
             </section>
@@ -28,8 +29,9 @@
     </div>
 
     <app-battle-hero-card
-        class="battle__column"
+        class="battle__column battle__hero-card"
         [hero]="opponentHero"
+        [routerLink]="['/heroes', opponentHeroId]"
         [heroStats]="opponentHeroStats">
     </app-battle-hero-card>
 </div>

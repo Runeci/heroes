@@ -18,6 +18,7 @@ export class BattlePageComponent implements OnInit, OnDestroy {
     public opponentHero: Hero;
     public opponentHeroStats: [string, string][];
     public opponentHeroName: Hero['name'];
+    public opponentHeroId: Hero['id'];
 
     public userHero: Hero;
     public userHeroStats: [string, string][];
@@ -71,6 +72,7 @@ export class BattlePageComponent implements OnInit, OnDestroy {
                 this.opponentHero = hero;
                 this.opponentHeroStats = Object.entries(hero.powerstats);
                 this.opponentHeroName = hero.name;
+                this.opponentHeroId = hero.id;
             });
     }
 

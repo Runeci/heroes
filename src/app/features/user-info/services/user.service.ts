@@ -14,15 +14,15 @@ export class UserService {
 
     public addToOwnedHeroes(hero: Hero): void {
         this.ownedHeroes.push(hero);
-        this.markHeroAsSelected();
+        this.markLastHeroAsSelected();
     }
 
     public removeFromOwnedHeroes(index: number): void {
         this.ownedHeroes.splice(index, 1);
-        this.markHeroAsSelected();
+        this.markLastHeroAsSelected();
     }
 
-    public markHeroAsSelected(): void {
+    public markLastHeroAsSelected(): void {
         this.selectedHero = this.ownedHeroes[this.ownedHeroes.length - 1];
     }
 
@@ -34,6 +34,11 @@ export class UserService {
         const index = heroesIDs.indexOf(id);
         const selectedHero = this.ownedHeroes.splice(index, 1);
         this.ownedHeroes.push(selectedHero[0]);
-        this.markHeroAsSelected();
+        this.markLastHeroAsSelected();
+    }
+
+    public checkIfHeroIsOwned(heroId: Hero['id']): boolean {
+        const heroIDs = this.ownedHeroes.map(hero => hero.id);
+        return heroIDs.includes(heroId);
     }
 }

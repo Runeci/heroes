@@ -1,1 +1,49 @@
-<p>hero-info-page works!</p>
+<ng-container *ngIf="(hero$ | async) as hero">
+    <div class="hero-info__container">
+        <div class="hero-info__img">
+            <img [src]="hero.image.url" [alt]="hero.name">
+        </div>
+
+        <div class="hero-info__content_container">
+            <h3 class="hero-info__name">{{ hero.name }}</h3>
+            <div class="hero-info__content">
+                <div class="hero-info__content_item">
+                    <h4>Hero Appearance</h4>
+                    <ul class="hero-info__content_list">
+                        <li><span>Gender:</span> {{ hero.appearance.gender}}</li>
+                        <li><span>Race:</span> {{ hero.appearance.race }}</li>
+                        <li><span>Height:</span> {{ hero.appearance.height[1] }}</li>
+                        <li><span>Weight:</span> {{ hero.appearance.weight[1] }}</li>
+                        <li><span>Eye color:</span> {{ hero.appearance["eye-color"] }}</li>
+                        <li><span>Hair color:</span> {{ hero.appearance["hair-color"] }}</li>
+                    </ul>
+                </div>
+                <div class="hero-info__content_item">
+                    <h4>Hero Biography</h4>
+                    <ul class="hero-info__content_list">
+                        <li><span>Full name:</span> {{ hero.biography["full-name"] }}</li>
+                        <li><span>Alter egos:</span> {{ hero.biography["alter-egos"] }}</li>
+                        <li><span>Place of birth:</span> {{ hero.biography["place-of-birth"] }}</li>
+                        <li><span>First appearance:</span> {{ hero.biography["first-appearance"] }}</li>
+                        <li><span>Publisher:</span> {{ hero.biography.publisher }}</li>
+                        <li><span>Alignment:</span> {{ hero.biography.alignment }}</li>
+                    </ul>
+                </div>
+                <div class="hero-info__content_item">
+                    <h4>Work</h4>
+                    <ul class="hero-info__content_list">
+                        <li><span>Base:</span> {{ hero.work.base }}</li>
+                        <li><span>Occupation:</span> {{ hero.work.occupation}}</li>
+                    </ul>
+                </div>
+                <div class="hero-info__content_item">
+                    <h4>Connections</h4>
+                    <ul class="hero-info__content_list">
+                        <li><span>Group affiliation:</span> {{ hero.connections["group-affiliation"] }}</li>
+                        <li><span>Relatives:</span> {{ hero.connections.relatives }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

@@ -12,14 +12,20 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header="userHeroName">
                 Hero Name
             </th>
-            <td mat-cell *matCellDef="let element"> {{ element.userHeroName }} </td>
+            <td mat-cell
+                style="cursor: pointer"
+                *matCellDef="let element"
+                [routerLink]="['/heroes', element.userId]"> {{ element.userHeroName }} </td>
         </ng-container>
 
         <ng-container matColumnDef="opponentHeroName">
             <th mat-header-cell *matHeaderCellDef mat-sort-header="opponentHeroName">
                 Opponent Name
             </th>
-            <td mat-cell *matCellDef="let element"> {{ element.opponentHeroName }} </td>
+            <td mat-cell
+                style="cursor: pointer"
+                *matCellDef="let element"
+                [routerLink]="['/heroes', element.opponentId]"> {{ element.opponentHeroName }} </td>
         </ng-container>
 
         <ng-container matColumnDef="date">

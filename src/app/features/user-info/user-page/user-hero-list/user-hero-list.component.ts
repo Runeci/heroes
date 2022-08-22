@@ -20,11 +20,16 @@ export class UserHeroListComponent implements OnInit {
     public ngOnInit(): void {
         this.ownedHeroes = this.userService.ownedHeroes;
         this.selectedHero = this.userService.selectedHero;
+
     }
 
-    public selectHero(id: Hero['id']) {
+    public selectHero(id: Hero['id']): void {
         this.userService.selectHeroAsChamp(id);
         this.selectedHero = this.userService.selectedHero;
     }
 
+    public removeFromOwnedHeroes(index: number): void {
+        this.userService.removeFromOwnedHeroes(index);
+        this.selectedHero = this.userService.selectedHero;
+    }
 }
