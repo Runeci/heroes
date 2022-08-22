@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map,  Subject, takeUntil } from 'rxjs';
-import { HeroesApiService } from '../../services/heroes-api.service';
+import { map, Subject, takeUntil } from 'rxjs';
+import { HeroesApiService } from '../../../services/heroes-api.service';
 
 @Component({
     selector: 'app-hero-search',
@@ -54,7 +54,7 @@ export class HeroSearchComponent implements OnInit, OnDestroy {
 
     public onClearSearch(): void {
         this.searchControl.reset();
-        this.setSearchQuery(this.searchControl.value);
+        this.setSearchQuery(null);
     }
 
     public addToResentSearches(search: string): void {

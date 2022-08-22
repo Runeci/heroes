@@ -5,19 +5,25 @@
             <div class="user-owned__card-content">
                 <img mat-card-lg-image [src]="hero.image.url" [alt]="hero.name">
                 <mat-card-content>
-                    <ol class="appearance">
+                    <ol class="user-owned__appearance user-owned__info">
                         <li>Gender: {{ hero.appearance.gender }}</li>
                         <li>Race: {{ hero.appearance.race !== 'null' ? hero.appearance.race : ''}}</li>
                         <li>Height: {{ hero.appearance.height[1] }}</li>
                         <li>Eyes: {{ hero.appearance["eye-color"] }}</li>
                     </ol>
-                    <ol class="powerstats">
-                        <li> Strength: {{hero.powerstats.strength !== 'null' ? hero.powerstats.strength : '0'}}</li>
-                        <li>
-                            Intelligence: {{hero.powerstats.intelligence !== 'null' ? hero.powerstats.intelligence : '0'}}</li>
-                        <li>Speed: {{hero.powerstats.speed !== 'null' ? hero.powerstats.speed : '0'}}</li>
-                        <li>
-                            Durability: {{hero.powerstats.durability !== 'null' ? hero.powerstats.durability : '0'}}</li>
+                    <ol class="user-owned__powerstats user-owned__info">
+                        <li> Strength:
+                            {{hero.powerstats.strength !== 'null' ? hero.powerstats.strength : '0'}}
+                        </li>
+                        <li>Intelligence:
+                            {{hero.powerstats.intelligence !== 'null' ? hero.powerstats.intelligence : '0'}}
+                        </li>
+                        <li>Speed:
+                            {{hero.powerstats.speed !== 'null' ? hero.powerstats.speed : '0'}}
+                        </li>
+                        <li>Durability:
+                            {{hero.powerstats.durability !== 'null' ? hero.powerstats.durability : '0'}}
+                        </li>
                         <li>Combat: {{hero.powerstats.combat !== 'null' ? hero.powerstats.combat : '0'}}</li>
                         <li>Power: {{hero.powerstats.power !== 'null' ? hero.powerstats.power : '0'}}</li>
                     </ol>
@@ -42,10 +48,8 @@
             <mat-icon>add</mat-icon>
         </button>
     </div>
-
 </ng-container>
 
 <ng-template #notFound>
-    No owned heroes were found
+    <p class="user-owned__not-found"> No owned heroes were found</p>
 </ng-template>
-

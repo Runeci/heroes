@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    position: relative;
 
     h1 {
         transition: all 0.3s ease-in-out;
@@ -11,6 +12,13 @@
             opacity: 0.9;
         }
     }
+
+    .header__battle-btn {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
 .header__aside {
@@ -19,7 +27,7 @@
     flex-wrap: wrap;
     gap: 10px;
 
-    .user-info__btn {
+    .header__user-btn {
         display: flex;
         align-items: center;
         gap: 10px;
@@ -36,4 +44,24 @@
     font-size: 40px;
     width: 40px;
     height: 40px;
+}
+
+
+@media (max-width: 600px) {
+    .header {
+        height: 80px;
+
+        .header__battle-btn {
+            position: relative;
+            left: 0;
+            top: 0;
+            transform: translate(0, 0);
+        }
+
+        .header__aside {
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+
 }

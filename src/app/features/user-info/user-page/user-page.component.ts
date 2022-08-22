@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { map, Observable, of } from 'rxjs';
 
+
 @Component({
     selector: 'app-user-page',
     templateUrl: './user-page.component.html',
@@ -16,7 +17,7 @@ export class UserPageComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
     ) {
     }
 
@@ -33,7 +34,7 @@ export class UserPageComponent implements OnInit {
         );
     }
 
-    public tabChanged(tabChangeEvent: MatTabChangeEvent) {
+    public tabChanged(tabChangeEvent: MatTabChangeEvent): void {
         this.navigate(this.tabLinks[tabChangeEvent.index]);
     }
 }

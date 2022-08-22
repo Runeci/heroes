@@ -1,0 +1,40 @@
+<div class="battle__container">
+    <app-battle-hero-card
+        class="battle__column"
+        [hero]="userHero"
+        [heroStats]="userHeroStats">
+    </app-battle-hero-card>
+
+    <div class="battle__column battle__action-column">
+        <div class="battle__user-hero-name hero-name">{{ userHero.name }}</div>
+        <button mat-flat-button color="primary" (click)="onFight()">Fight</button>
+        <div class="battle__opponent-hero-name hero-name">{{ opponentHeroName }}</div>
+
+        <div class="battle__powerups">
+            <section class="example-section" [formGroup]="powerupsForm">
+                <p *ngFor="let powerup of userPowerups; let i = index">
+                    <mat-checkbox
+                        [formControlName]="powerup.item"
+                        [id]="i.toString()"
+                        [checked]="false"
+                        [value]="powerup.value.toString()"
+                        (change)="onCheckboxChange($event, i)">
+                        <span>{{ powerup.item }} {{ powerup.usesLeft }}</span>
+                    </mat-checkbox>
+                </p>
+            </section>
+        </div>
+    </div>
+
+    <app-battle-hero-card
+        class="battle__column"
+        [hero]="opponentHero"
+        [heroStats]="opponentHeroStats">
+    </app-battle-hero-card>
+</div>
+
+<div *ngIf="loadingOpponent$ | async" class="opponent-loading">
+    <p> Choosing opponent...</p>
+</div>
+
+<mat-spinner *ngIf="fighting$ | async"></mat-spinner>

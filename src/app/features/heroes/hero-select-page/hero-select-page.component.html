@@ -1,0 +1,24 @@
+<div class="heroes__search-container">
+    <app-hero-alphbetical-select></app-hero-alphbetical-select>
+    <app-hero-search class="heroes-cards__search"></app-hero-search>
+</div>
+
+
+<div class="hero-cards__container">
+    <ng-container *ngIf="(heroes$ | async) as heroes; else notFound">
+        <app-hero-select-card
+            class="hero-card__container"
+            *ngFor="let hero of heroes" [hero]="hero">
+        </app-hero-select-card>
+    </ng-container>
+
+    <ng-template
+        class=""
+        #notFound>
+        No matches
+    </ng-template>
+</div>
+
+<mat-spinner *ngIf="loading$ | async"></mat-spinner>
+
+

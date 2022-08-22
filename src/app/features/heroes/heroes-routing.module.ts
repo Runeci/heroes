@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HeroSelectComponent } from './hero-select/hero-select.component';
+import { HeroSelectPageComponent } from './hero-select-page/hero-select-page.component';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo:'select' },
-    { path: 'select', component: HeroSelectComponent }
+    { path: 'select', component: HeroSelectPageComponent },
 ];
 
 @NgModule({

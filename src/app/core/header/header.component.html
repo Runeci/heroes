@@ -1,7 +1,17 @@
 <mat-toolbar class="header" color="primary">
     <h1 [routerLink]="['/heroes']">Heroes</h1>
-    <div class="header__aside" *ngIf="isLoggedIn$ | async">
-        <div class="user-info__btn" [routerLink]="['/user']">
+    <button
+        class="header__battle-btn"
+        [routerLink]="['/battle']"
+        mat-stroked-button>{{ 'Battle' | uppercase}}
+    </button>
+    <div
+        class="header__aside"
+        *ngIf="isLoggedIn$ | async">
+
+
+        <div class="header__user-btn"
+             [routerLink]="['/user']">
             <mat-icon class="header__icon">account_circle</mat-icon>
             <div class="header__username"> {{ username$ | async }}</div>
         </div>

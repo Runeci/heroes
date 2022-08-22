@@ -1,1 +1,14 @@
-<p>user-hero-powerups works!</p>
+<div class="powerups__container">
+    <mat-card class="powerup__card" *ngFor="let powerup of powerups">
+        <mat-card-title class="powerup__title">{{ powerup.item }}</mat-card-title>
+        <img class="powerup__img" mat-card-lg-image [src]="powerup.imgUrl" [alt]="powerup.item">
+        <mat-card-content class="powerup__content">
+            <div class="powerup__description">
+                <span>{{ powerup.powerstat | titlecase}}:</span> + {{ powerup.value }}
+            </div>
+            <div class="powerup__uses">
+                <span>Uses left:</span> {{ powerup.usesLeft }}
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

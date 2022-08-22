@@ -25,7 +25,7 @@ import { MatIconModule } from '@angular/material/icon';
         MatTabsModule,
         MatCardModule,
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
     ]
 })
 export class UserModule { }

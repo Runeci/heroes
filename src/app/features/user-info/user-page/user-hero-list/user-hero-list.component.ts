@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Hero } from '../../../heroes/helpers/hero.interface';
-import { HeroService } from '../../../services/hero.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
     selector: 'app-user-hero-list',
@@ -13,18 +13,18 @@ export class UserHeroListComponent implements OnInit {
     public selectedHero: Hero;
 
     constructor(
-        private heroService: HeroService,
+        private userService: UserService,
     ) {
     }
 
     public ngOnInit(): void {
-        this.ownedHeroes = this.heroService.ownedHeroes;
-        this.selectedHero = this.heroService.selectedHero;
+        this.ownedHeroes = this.userService.ownedHeroes;
+        this.selectedHero = this.userService.selectedHero;
     }
 
     public selectHero(id: Hero['id']) {
-        this.heroService.selectHeroAsChamp(id);
-        this.selectedHero = this.heroService.selectedHero;
+        this.userService.selectHeroAsChamp(id);
+        this.selectedHero = this.userService.selectedHero;
     }
 
 }

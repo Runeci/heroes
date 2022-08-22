@@ -1,0 +1,9 @@
+<div class="battle__hero" *ngIf="hero">
+    <div class="battle__hero_name">{{ hero.name }}</div>
+    <img mat-card-xl-image [src]="hero.image.url" [alt]="hero.name">
+    <ul class="battle__hero_stats">
+        <li *ngFor="let stat of heroStats">
+            <span>{{ stat[0] | titlecase }}: </span>{{ stat[1] !== 'null' ? stat[1] : '0' | titlecase }}
+        </li>
+    </ul>
+</div>

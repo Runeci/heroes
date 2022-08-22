@@ -1,0 +1,35 @@
+.battle__hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .battle__hero_name {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    img {
+        margin-bottom: 20px;
+        border-radius: 4px;
+    }
+
+
+    .battle__hero_stats {
+        padding: 0;
+        margin: 0;
+
+        li {
+            list-style: none;
+            font-size: 16px;
+
+            span {
+                color: #c2185b;
+                font-weight: bold;
+            }
+        }
+    }
+
+}
+
+

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { Hero } from '../helpers/hero.interface';
-import { HeroService } from '../../services/hero.service';
+import { Hero } from '../../helpers/hero.interface';
+import { UserService } from '../../../services/user.service';
 
 @Component({
     selector: 'app-hero-select-card',
@@ -14,12 +14,12 @@ export class HeroSelectCardComponent implements OnInit {
     public isOwned = false;
 
     constructor(
-        private heroService: HeroService,
+        private userService: UserService,
     ) {
     }
 
     public ngOnInit(): void {
-        const heroIDs = this.heroService.ownedHeroes.map(hero => hero.id);
+        const heroIDs = this.userService.ownedHeroes.map(hero => hero.id);
         if (heroIDs.includes(this.hero.id)) {
             this.isOwned = true;
         }
@@ -27,13 +27,13 @@ export class HeroSelectCardComponent implements OnInit {
     }
 
     public onSelect(): void {
-        this.heroService.addToOwnedHeroes(this.hero);
+        this.userService.addToOwnedHeroes(this.hero);
         this.isOwned = true;
     }
 
     public onRemove(): void {
-        const heroIDs = this.heroService.ownedHeroes.map(hero => hero.id);
-        this.heroService.removeFromOwnedHeroes(heroIDs.indexOf(this.hero.id));
+        const heroIDs = this.userService.ownedHeroes.map(hero => hero.id);
+        this.userService.removeFromOwnedHeroes(heroIDs.indexOf(this.hero.id));
         this.isOwned = false;
     }
 }

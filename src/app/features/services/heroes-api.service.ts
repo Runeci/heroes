@@ -9,12 +9,18 @@ import { Hero, HeroSearch } from '../heroes/helpers/hero.interface';
 })
 export class HeroesApiService {
 
-    constructor(private http: HttpClient,) {
+    constructor(
+        private http: HttpClient,
+    ) {
     }
 
     public searchHeroes(search: string): Observable<Hero[]> {
         return this.http.get<HeroSearch>(HERO_DATA_API_URL + 'search/' + search).pipe(
             map(res => res.results),
         );
+    }
+
+    public getHeroById(search: number): Observable<Hero> {
+        return this.http.get<Hero>(HERO_DATA_API_URL + search.toString());
     }
 }
