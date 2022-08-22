@@ -2,7 +2,8 @@ import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, Subject, takeUntil } from 'rxjs';
-import { HeroesApiService } from '../../../services/heroes-api.service';
+import { HeroesApiService } from '../../services/heroes-api.service';
+import { UserService } from '../../../user-info/services/user.service';
 
 @Component({
     selector: 'app-hero-search',
@@ -16,9 +17,11 @@ export class HeroSearchComponent implements OnInit, OnDestroy {
     private destroy$ = new Subject<boolean>;
 
     constructor(
+        private userService: UserService,
         private heroesApiService: HeroesApiService,
         private activatedRoute: ActivatedRoute,
-        private router: Router) {
+        private router: Router,
+        ) {
     }
 
     public ngOnInit(): void {
@@ -27,6 +30,8 @@ export class HeroSearchComponent implements OnInit, OnDestroy {
             takeUntil(this.destroy$),
         )
             .subscribe((searchVal) => this.searchControl.setValue(searchVal));
+
+        this.resentSearches = this.userService.userResentSearches;
     }
 
     private setSearchQuery(search: string): void {

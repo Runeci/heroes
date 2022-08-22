@@ -10,6 +10,8 @@ import { UserHeroPowerupsComponent } from './user-page/user-hero-powerups/user-h
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { MatIconModule } from '@angular/material/icon';
         MatCardModule,
         MatButtonModule,
         MatIconModule,
+        MatTableModule,
+        MatSortModule,
     ]
 })
 export class UserModule { }

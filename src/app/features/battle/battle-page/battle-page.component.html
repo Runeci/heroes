@@ -6,6 +6,7 @@
     </app-battle-hero-card>
 
     <div class="battle__column battle__action-column">
+        <button mat-flat-button (click)="chooseOpponent()">Change opponent</button>
         <div class="battle__user-hero-name hero-name">{{ userHero.name }}</div>
         <button mat-flat-button color="primary" (click)="onFight()">Fight</button>
         <div class="battle__opponent-hero-name hero-name">{{ opponentHeroName }}</div>

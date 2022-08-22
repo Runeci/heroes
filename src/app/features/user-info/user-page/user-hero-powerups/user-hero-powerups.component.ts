@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { UserService } from '../../../services/user.service';
-import { Powerstat } from '../../../heroes/helpers/powerstat.interface';
+import { UserService } from '../../services/user.service';
+import { Powerstat } from '../../helpers/powerstat.interface';
 
 @Component({
     selector: 'app-user-hero-powerups',
@@ -15,6 +15,6 @@ export class UserHeroPowerupsComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.powerups = this.userService.userPowerstat;
+        this.powerups = this.userService.userPowerstats;
     }
 }

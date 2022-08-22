@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Hero } from '../../../heroes/helpers/hero.interface';
-import { UserService } from '../../../services/user.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
     selector: 'app-user-hero-list',

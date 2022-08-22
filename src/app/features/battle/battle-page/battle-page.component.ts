@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
-import { HeroesApiService } from '../../services/heroes-api.service';
-import { BattleService } from '../battle.service';
+import { HeroesApiService } from '../../heroes/services/heroes-api.service';
+import { BattleService } from '../services/battle.service';
 import { Hero } from '../../heroes/helpers/hero.interface';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../user-info/services/user.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Powerstat } from '../../heroes/helpers/powerstat.interface';
+import { Powerstat } from '../../user-info/helpers/powerstat.interface';
 import { BehaviorSubject, finalize, Subject, takeUntil, timer } from 'rxjs';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 
@@ -37,19 +37,10 @@ export class BattlePageComponent implements OnInit, OnDestroy {
     }
 
     public ngOnInit(): void {
-        this.loadingOpponent$.next(true);
-        this.battleService.randomOpponent.pipe(
-            finalize(() => this.loadingOpponent$.next(false)),
-            takeUntil(this.destroy$)
-        )
-            .subscribe((hero) => {
-                this.opponentHero = hero;
-                this.opponentHeroStats = Object.entries(hero.powerstats);
-                this.opponentHeroName = hero.name;
-            });
+        this.chooseOpponent();
         this.userHero = this.userService.selectedHero;
         this.userHeroStats = Object.entries(this.userHero.powerstats);
-        this.userPowerups = this.userService.userPowerstat;
+        this.userPowerups = this.userService.userPowerstats;
         this.createPowerupForm();
     }
 
@@ -70,6 +61,19 @@ export class BattlePageComponent implements OnInit, OnDestroy {
         })
     }
 
+    public chooseOpponent(): void{
+        this.loadingOpponent$.next(true);
+        this.battleService.randomOpponent.pipe(
+            finalize(() => this.loadingOpponent$.next(false)),
+            takeUntil(this.destroy$)
+        )
+            .subscribe((hero) => {
+                this.opponentHero = hero;
+                this.opponentHeroStats = Object.entries(hero.powerstats);
+                this.opponentHeroName = hero.name;
+            });
+    }
+
     public ngOnDestroy(): void {
         this.destroy$.next(true);
         this.destroy$.unsubscribe();
@@ -86,10 +90,10 @@ export class BattlePageComponent implements OnInit, OnDestroy {
 
     private managePowerstats(): number {
         const formObj = this.powerupsForm.value;
-        let powerupsSum = 0;
+        let powerstatsSum = 0;
         for (let key in formObj) {
             if (formObj[key]) {
-                this.userService.userPowerstat.forEach(powerstat => {
+                this.userService.userPowerstats.forEach(powerstat => {
                     if (powerstat.item === key) {
                         if (powerstat.usesLeft > 0) {
                             powerstat.usesLeft -= 1;
@@ -98,11 +102,11 @@ export class BattlePageComponent implements OnInit, OnDestroy {
                             this.powerupsForm.controls[powerstat.item].disable();
                         }
 
-                        powerupsSum += powerstat.value;
+                        powerstatsSum += powerstat.value;
                     }
                 });
             }
         }
-        return powerupsSum;
+        return powerstatsSum;
     }
 }

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { HeroesApiService } from '../../services/heroes-api.service';
+import { HeroesApiService } from '../services/heroes-api.service';
 import {
     BehaviorSubject,
     distinctUntilChanged, filter, finalize,
