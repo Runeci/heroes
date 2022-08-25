@@ -7,17 +7,15 @@ export function UsernameStrengthValidator(control: AbstractControl): ValidationE
     const maxLength = 8;
     let regexIsMatched = false;
     let amountOfWordsMatched = false;
+    let lengthMatched = false;
     let errorMessage: string = '';
 
     if (!value) {
         return null;
     }
 
-    if (regex.test(value)) {
-        regexIsMatched = true;
-    } else {
-        errorMessage = '-username should contain only letters';
-    }
+    regex.test(value) ? regexIsMatched = true : errorMessage = '-username should contain only letters';
+    value.length >= maxLength ? lengthMatched = true : errorMessage = '-username should be at least 8 characters';
 
     if (value.trim().split('_').length === wordsAmount ||
         value.trim().split('-').length === wordsAmount ||
@@ -27,9 +25,5 @@ export function UsernameStrengthValidator(control: AbstractControl): ValidationE
         errorMessage = '-username should contain two words';
     }
 
-    if (value.length < maxLength) {
-        errorMessage = '-username should be at least 8 characters';
-    }
-
-    return  regexIsMatched && amountOfWordsMatched ? null :  { usernameStrength: `${ errorMessage }` } ;
+    return  regexIsMatched && amountOfWordsMatched && lengthMatched ? null :  { usernameStrength: `${ errorMessage }` };
 }

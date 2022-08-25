@@ -4,6 +4,7 @@ import { EmailStrengthValidator } from '../validators/email-strength.validator';
 import { PasswordStrengthValidator } from '../validators/password-strength.validator';
 import { UsernameStrengthValidator } from '../validators/username-strength.validator';
 import { AuthService } from '../../auth.service';
+import { PasswordMatchValidator } from '../validators/password-match';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class SignupComponent implements OnInit {
             username: ['', [Validators.required, UsernameStrengthValidator]],
             email: ['', [Validators.required, EmailStrengthValidator]],
             password: ['', [Validators.required, PasswordStrengthValidator]],
-        });
+        },  { validators: PasswordMatchValidator });
     }
 
     public onSubmit(): void {

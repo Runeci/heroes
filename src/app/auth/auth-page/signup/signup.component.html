@@ -27,6 +27,10 @@
                 <mat-error *ngIf="signupForm.get('password').hasError('passwordStrength')">
                     {{ signupForm.get('password').errors?.['passwordStrength'] }}
                 </mat-error>
+                <mat-error *ngIf="signupForm.hasError('passwordMatch')
+                && signupForm.get('password').touched && signupForm.get('password').dirty"
+                >-password shouldn`t contain parts of email or username
+                </mat-error>
             </mat-form-field>
         </div>
         <div class="signup-form__actions">
@@ -35,12 +39,14 @@
                 type="button"
                 class="form__button"
                 mat-flat-button
-                color="primary">LOG IN</button>
+                color="primary">LOG IN
+            </button>
             <button
                 [disabled]="signupForm.invalid"
                 class="form__button"
                 mat-flat-button
-                color="primary">SIGN UP</button>
+                color="primary">SIGN UP
+            </button>
         </div>
     </form>
 </div>
